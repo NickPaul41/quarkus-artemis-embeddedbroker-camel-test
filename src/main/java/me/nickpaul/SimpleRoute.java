@@ -1,11 +1,9 @@
 package me.nickpaul;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.jms.ConnectionFactory;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.sjms2.Sjms2Component;
-import org.jboss.logging.Logger;
 
 @ApplicationScoped
 public class SimpleRoute extends RouteBuilder {
