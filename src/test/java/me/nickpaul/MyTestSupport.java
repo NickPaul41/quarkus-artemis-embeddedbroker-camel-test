@@ -11,7 +11,7 @@ public class MyTestSupport {
   MockEndpoint target;
   MockEndpoint error;
   MockEndpoint failure;
-  MoreComplexRoute route;
+  MyBaseRoute route;
 
   @Inject
   CamelContext camelContext;

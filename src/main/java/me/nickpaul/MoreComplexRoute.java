@@ -1,23 +1,15 @@
 package me.nickpaul;
 
-import java.util.concurrent.ExecutionException;
 import javax.enterprise.context.ApplicationScoped;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.sjms2.Sjms2Component;
 import org.apache.camel.model.OnCompletionDefinition;
 import org.apache.camel.model.OnExceptionDefinition;
 import org.messaginghub.pooled.jms.JmsPoolConnectionFactory;
 
 @ApplicationScoped
-public class MoreComplexRoute extends RouteBuilder {
-
-  String sjms2ComponentName = "complex-sjms2";
-  String inboundUri = sjms2ComponentName + ":complex-inbound";
-  String targetUri = sjms2ComponentName + ":complex-error";
-  String errorUri = sjms2ComponentName + ":complex-error";
-  String failureUri = sjms2ComponentName + ":complex-error";
+public class MoreComplexRoute extends MyBaseRoute  {
 
   @Override
   public void configure() throws Exception {
@@ -66,25 +58,4 @@ public class MoreComplexRoute extends RouteBuilder {
           .otherwise()
             .to(targetUri);
   }
-
-  public String getErrorUri() {
-    return errorUri;
-  }
-
-  public String getFailureUri() {
-    return failureUri;
-  }
-
-  public String getInboundUri() {
-    return inboundUri;
-  }
-
-  public String getTargetUri() {
-    return targetUri;
-  }
-
-  public String getSjms2ComponentName() {
-    return sjms2ComponentName;
-  }
-
 }
