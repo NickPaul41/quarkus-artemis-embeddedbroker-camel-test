@@ -1,13 +1,18 @@
 package me.nickpaul;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.sjms2.Sjms2Component;
 import org.messaginghub.pooled.jms.JmsPoolConnectionFactory;
 
 @ApplicationScoped
 public class SimpleRoute extends RouteBuilder {
+
+  @Inject
+  CamelContext camelContext;
 
   @Override
   public void configure() throws Exception {
@@ -22,8 +27,7 @@ public class SimpleRoute extends RouteBuilder {
     // Create a unique component with the pooled connection.
     Sjms2Component component = new Sjms2Component();
     component.setConnectionFactory(pooledConnectionFactory);
-    this.getCamelContext().addComponent("my-sjms2", component);
-
+    camelContext.addComponent("my-sjms2", component);
 
     // Based on the message send to Error, Audit or Destination Endpoints
     from("my-sjms2:inbound")

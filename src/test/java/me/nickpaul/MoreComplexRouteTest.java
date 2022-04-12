@@ -3,7 +3,6 @@ package me.nickpaul;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
-import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +13,6 @@ public class MoreComplexRouteTest extends MyTestSupport{
 
   @Inject
   ProducerTemplate producerTemplate;
-
-
 
   @Inject
   MoreComplexRoute moreComplexRoute;

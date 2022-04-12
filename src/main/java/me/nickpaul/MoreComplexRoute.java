@@ -1,7 +1,9 @@
 package me.nickpaul;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.component.sjms2.Sjms2Component;
 import org.apache.camel.model.OnCompletionDefinition;
@@ -10,6 +12,9 @@ import org.messaginghub.pooled.jms.JmsPoolConnectionFactory;
 
 @ApplicationScoped
 public class MoreComplexRoute extends MyBaseRoute  {
+
+  @Inject
+  CamelContext camelContext;
 
   @Override
   public void configure() throws Exception {
@@ -25,7 +30,7 @@ public class MoreComplexRoute extends MyBaseRoute  {
     // Create a unique component with the pooled connection.
     Sjms2Component component = new Sjms2Component();
     component.setConnectionFactory(pooledConnectionFactory);
-    this.getCamelContext().addComponent(sjms2ComponentName, component);
+    camelContext.addComponent(sjms2ComponentName, component);
 
 
 
