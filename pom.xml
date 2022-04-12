@@ -94,7 +94,7 @@
     </dependency>
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>artemis-jms-client-all</artifactId>
+      <artifactId>artemis-jms-client</artifactId>
       <version>2.20.0</version>
     </dependency>
 

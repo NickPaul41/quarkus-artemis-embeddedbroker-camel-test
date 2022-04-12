@@ -21,7 +21,7 @@ public class SimpleRouteTest {
 
   @Test
   void testDestination() {
-    producerTemplate.requestBody("my-sjms2:inbound", "TESTING");
+    producerTemplate.sendBody("my-sjms2:inbound", "TESTING");
 
     String body = consumerTemplate.receiveBody("my-sjms2:destination", 5000, String.class);
     assertEquals(body, "TESTING");
@@ -29,7 +29,7 @@ public class SimpleRouteTest {
 
   @Test
   void testFail() {
-    producerTemplate.requestBody("my-sjms2:inbound", "fail");
+    producerTemplate.sendBody("my-sjms2:inbound", "fail");
 
     String body = consumerTemplate.receiveBody("my-sjms2:fail", 5000, String.class);
     assertEquals(body, "fail");
@@ -37,10 +37,10 @@ public class SimpleRouteTest {
 
   @Test
   void testError() {
-    producerTemplate.requestBody("my-sjms2:inbound", "error");
+    producerTemplate.sendBody("my-sjms2:inbound", "error");
 
     String body = consumerTemplate.receiveBody("my-sjms2:error", 5000, String.class);
-    assertEquals(body, "fail");
+    assertEquals(body, "error");
   }
 
 }
