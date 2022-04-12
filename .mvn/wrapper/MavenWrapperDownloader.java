@@ -97,7 +97,7 @@ public class MavenWrapperDownloader {
     }
   }
 
-  private static void downloadFileFromURL(String urlString, File destination)
+  private static void downloadFileFromURL(String urlString, File target)
       throws Exception {
     if (System.getenv("MVNW_USERNAME") != null && System.getenv("MVNW_PASSWORD") != null) {
       String username = System.getenv("MVNW_USERNAME");
@@ -112,7 +112,7 @@ public class MavenWrapperDownloader {
     URL website = new URL(urlString);
     ReadableByteChannel rbc;
     rbc = Channels.newChannel(website.openStream());
-    FileOutputStream fos = new FileOutputStream(destination);
+    FileOutputStream fos = new FileOutputStream(target);
     fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
     fos.close();
     rbc.close();

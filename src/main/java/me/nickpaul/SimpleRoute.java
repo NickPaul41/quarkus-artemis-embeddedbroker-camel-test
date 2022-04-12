@@ -27,14 +27,16 @@ public class SimpleRoute extends RouteBuilder {
 
     // Based on the message send to Error, Audit or Destination Endpoints
     from("my-sjms2:inbound")
+        .routeId("Simple Route")
         .log("ReceivedMessage: ${body}")
+
         .choice()
           .when(simple("${body} == 'error'"))
             .to("my-sjms2:error")
           .when(simple("${body} == 'fail'"))
             .to("my-sjms2:fail")
           .otherwise()
-             .to("my-sjms2:destination");
+             .to("my-sjms2:target");
     }
 
 }

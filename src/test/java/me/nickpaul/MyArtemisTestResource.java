@@ -40,7 +40,7 @@ public class MyArtemisTestResource implements QuarkusTestResourceLifecycleManage
       FileUtils.deleteDirectory(Paths.get(DATA_DIRECTORY).toFile());
       embedded = new EmbeddedActiveMQ();
       Configuration configuration = new ConfigurationImpl()
-          .setPersistenceEnabled(false)
+          //.setPersistenceEnabled(false)
           .setJournalDirectory(DATA_DIRECTORY + "/journal")
           .setBindingsDirectory(DATA_DIRECTORY + "/bindings")
           .setLargeMessagesDirectory(DATA_DIRECTORY + "/large-message")

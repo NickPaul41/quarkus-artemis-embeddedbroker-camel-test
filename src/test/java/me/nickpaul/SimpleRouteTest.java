@@ -23,7 +23,7 @@ public class SimpleRouteTest {
   void testDestination() {
     producerTemplate.sendBody("my-sjms2:inbound", "TESTING");
 
-    String body = consumerTemplate.receiveBody("my-sjms2:destination", 5000, String.class);
+    String body = consumerTemplate.receiveBody("my-sjms2:target", 5000, String.class);
     assertEquals(body, "TESTING");
   }
 
