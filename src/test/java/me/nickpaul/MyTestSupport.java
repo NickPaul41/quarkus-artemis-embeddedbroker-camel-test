@@ -16,7 +16,7 @@ public class MyTestSupport {
   @Inject
   CamelContext camelContext;
 
-  void setRoute(MoreComplexRoute route) {
+  void setRoute(MyDefaultRouteBase route) {
     this.route = route;
   }
 
