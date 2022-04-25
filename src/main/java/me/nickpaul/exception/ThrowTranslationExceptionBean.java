@@ -1,4 +1,4 @@
-package me.nickpaul;
+package me.nickpaul.exception;
 
 import org.apache.camel.Handler;
 

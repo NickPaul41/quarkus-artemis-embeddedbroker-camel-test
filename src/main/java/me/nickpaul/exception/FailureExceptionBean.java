@@ -1,6 +1,6 @@
-package me.nickpaul;
+package me.nickpaul.exception;
 
-import java.util.concurrent.ExecutionException;
+import me.nickpaul.exception.TranslationException;
 import org.apache.camel.Handler;
 
 public class FailureExceptionBean {

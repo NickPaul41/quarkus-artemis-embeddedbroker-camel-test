@@ -1,6 +1,9 @@
 package me.nickpaul;
 
 import javax.enterprise.context.ApplicationScoped;
+import me.nickpaul.exception.FailureExceptionBean;
+import me.nickpaul.exception.ThrowTranslationExceptionBean;
+import me.nickpaul.exception.TranslationException;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.component.sjms2.Sjms2Component;

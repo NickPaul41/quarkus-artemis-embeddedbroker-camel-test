@@ -1,4 +1,4 @@
-package me.nickpaul;
+package me.nickpaul.exception;
 
 /**
  * Generic exception which can be thrown by translations to indicate a translation error.
